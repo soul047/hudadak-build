@@ -57,8 +57,9 @@ android {
         applicationId "app.netlify.app_hudadak.twa"
         minSdkVersion 21
         targetSdkVersion 35
-        versionCode 60
-        versionName "60"
+        versionCode 61
+        versionName "61"
+        assetStatements = '[{ "relation": ["delegate_permission/common.handle_all_urls"], "target": { "namespace": "web", "site": "https://app-hudadak.netlify.app" } }]'
 
         // The name for the application
         resValue "string", "appName", twaManifest.name
