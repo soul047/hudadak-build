@@ -47,7 +47,7 @@ android {
         versionName "61"
         assetStatements = '[{ "relation": ["delegate_permission/common.handle_all_urls"], "target": { "namespace": "web", "site": "https://app-hudadak.netlify.app" } }]'
 
-        resValue "string", "appName", twaManifest.name
+        resValue "string", "후다닥 미세먼지 피하기", twaManifest.name
         resValue "string", "launcherName", twaManifest.launcherName
         def launchUrl = "https://" + twaManifest.hostName + twaManifest.launchUrl
         resValue "string", "launchUrl", launchUrl
