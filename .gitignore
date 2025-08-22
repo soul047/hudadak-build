@@ -1,0 +1,10 @@
+# Gradle
+.gradle/
+build/
+
+# Caches
+.idea/
+.vscode/
+
+# Local configuration
+local.properties
