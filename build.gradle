@@ -37,17 +37,23 @@ def twaManifest = [
 ]
 
 android {
-    compileSdkVersion 36
+    // [수정됨] 최신 안정 버전으로 변경
+    compileSdkVersion 34
     namespace "app.netlify.app_hudadak.twa"
     defaultConfig {
         applicationId "app.netlify.app_hudadak.twa"
         minSdkVersion 21
-        targetSdkVersion 35
+        // [수정됨] 최신 안정 버전으로 변경
+        targetSdkVersion 34
         versionCode 61
         versionName "61"
-        assetStatements = '[{ "relation": ["delegate_permission/common.handle_all_urls"], "target": { "namespace": "web", "site": "https://app-hudadak.netlify.app" } }]'
 
-        resValue "string", "후다닥 미세먼지 피하기", twaManifest.name
+        // [수정됨] 오래된 assetStatements 명령어를 삭제하고 아래 resValue로 대체
+        def assetStatementsValue = '[{ "relation": ["delegate_permission/common.handle_all_urls"], "target": { "namespace": "web", "site": "https://app-hudadak.netlify.app" } }]'
+        resValue "string", "asset_statements", assetStatementsValue
+
+        // [수정됨] 기존 오류 수정
+        resValue "string", "appName", twaManifest.name
         resValue "string", "launcherName", twaManifest.launcherName
         def launchUrl = "https://" + twaManifest.hostName + twaManifest.launchUrl
         resValue "string", "launchUrl", launchUrl
@@ -81,9 +87,10 @@ android {
             minifyEnabled true
         }
     }
+    // [수정됨] 자바 17 버전으로 변경
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     lintOptions {
         checkReleaseBuilds false
